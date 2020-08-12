@@ -21,9 +21,9 @@ export class DropdownDirective {
     const nextSibling = this.currentEl.nativeElement.nextElementSibling;
 
     if (this.isOpen) {
-      nextSibling.className = 'dropdown-menu show';
+      nextSibling.classList.add('show');
     } else {
-      nextSibling.className = 'dropdown-menu';
+      nextSibling.classList.remove('show');
     }
   }
   constructor(private elRef: ElementRef) {

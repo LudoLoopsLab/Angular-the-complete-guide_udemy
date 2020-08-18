@@ -24,15 +24,7 @@ export class DataStorageService {
   }
 
   fetchRecipes() {
-    // take permet de subscribe qu'une seule fois, et donc pas besoin de unsubscribe
-    // exhaustMap, attends que le 1 observable , user, soit finis avant fair l'argument
-    return this.authService.user.pipe(
-      take(1),
-      exhaustMap((user) => {
-        return this.http.get<Recipe[]>(urlServer, {
-          params: new HttpParams().set('auth', user.token),
-        });
-      }),
+    return this.http.get<Recipe[]>(urlServer).pipe(
       map((recipes) => {
         return recipes.map((recipe) => {
           return {

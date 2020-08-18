@@ -32,7 +32,9 @@
     </ul>
     <ul class="nav my-2 my-lg-0 navbar-nav">
       <li class="nav-item" *ngIf="isAuthenticated">
-        <a class="nav-link" style="cursor: pointer;">logout</a>
+        <a class="nav-link" style="cursor: pointer;" (click)="onLogout()"
+          >logout</a
+        >
       </li>
       <li class="nav-item dropdown" *ngIf="isAuthenticated">
         <a
